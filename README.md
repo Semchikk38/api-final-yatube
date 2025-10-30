@@ -44,6 +44,7 @@ REST API для социальной сети Yatube - платформы для
     # Для Linux/MacOS:
     source venv/bin/activate
 
+ 
 3. **Установка зависимостей**
 
     pip install -r requirements.txt
