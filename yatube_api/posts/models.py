@@ -23,7 +23,7 @@ class Group(models.Model):
         verbose_name_plural = 'Группы'
 
     def __str__(self):
-        return self.title
+        return self.title[:20] + '...' if len(self.title) > 20 else self.title
 
 
 class Post(models.Model):
@@ -114,7 +114,7 @@ class Follow(models.Model):
         verbose_name_plural = 'Подписки'
         constraints = (
             models.UniqueConstraint(
-                fields=['user', 'following'],
+                fields=('user', 'following'),
                 name='unique_follow'
             ),
         )
