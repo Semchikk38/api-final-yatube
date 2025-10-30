@@ -95,8 +95,8 @@ REST API для социальной сети Yatube - платформы для
     
 ## Автор
 
-    Ерошевич Семён 
+   **Ерошевич Семён** 
 
-    GitHub: Semchikk38
+   **GitHub: Semchikk38**
 
-    Проект: API для Yatube
+   **Проект: API для Yatube**
