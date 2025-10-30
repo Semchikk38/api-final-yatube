@@ -1,33 +1,95 @@
 # API для Yatube
 
-## Описание
-REST API для социальной сети Yatube. Позволяет создавать посты, комментарии, подписываться на авторов. Использует JWT-аутентификацию.
+REST API для социальной сети Yatube - платформы для публикации постов, комментариев и взаимодействия между пользователями.
 
-## Установка
-Клонировать репозиторий и перейти в него в командной строке:
-git clone https://github.com/yandex-praktikum/api-final-yatube.git
-cd api-final-yatube
+## Функциональность
 
-Cоздать и активировать виртуальное окружение:
-python -m venv env
-source venv/Scripts/activate
+- **Публикации**: Создание, редактирование, удаление постов
+- **Комментарии**: Добавление комментариев к постам
+- **Подписки**: Возможность подписываться на других авторов
+- **Группы**: Категоризация постов по тематическим группам
+- **Аутентификация**: JWT-токены для безопасного доступа
+- **Права доступа**: Разграничение прав для анонимных и аутентифицированных пользователей
+- **Пагинация**: Эффективная работа с большими объемами данных
+- **Поиск и фильтрация**: Поиск по подпискам и фильтрация контента
 
-Установить зависимости из файла requirements.txt:
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+## Технологический стек
 
-Выполнить миграции:
-python manage.py migrate
+- **Python 3.8+**
+- **Django 5.1**
+- **Django REST Framework 3.15**
+- **Djoser** - для аутентификации
+- **Simple JWT** - JWT-токены
+- **SQLite** - база данных (для разработки)
+- **Django Filter** - фильтрация данных
 
-Запустить проект:
-python manage.py runserver
+## Требования
 
-## Примеры запросов к API
-Получение JWT-токена
-POST http://127.0.0.1:8000/v1/jwt/create/
-Body: {"username": "your_username", "password": "your_password"}
+- Python 3.8+
+- Django 5.1
+- Djangorestframework 3.15
 
-Создание поста
-POST http://127.0.0.1:8000/v1/posts/
-Headers: Authorization: Bearer <your_token>
-Body: {"text": "Текст поста", "image": "image_file"}
+## Установка и запуск
+
+1. **Клонирование репозитория**
+
+   git clone https://github.com/yandex-praktikum/api-final-yatube.git
+   cd api-final-yatube
+
+2. **Создание виртуального окружения**
+
+    python -m venv venv
+    # Для Windows:
+    venv\Scripts\activate
+    # Для Linux/MacOS:
+    source venv/bin/activate
+
+3. **Установка зависимостей**
+
+    pip install -r requirements.txt
+
+4. **Применение миграций**
+
+    python manage.py migrate
+
+5. **Запуск сервера**
+
+    python manage.py runserver
+
+## Документация API
+
+    После запуска сервера документация доступна по адресу:
+
+
+    ReDoc: http://127.0.0.1:8000/redoc/
+
+## Примеры запросов
+
+**Получение списка постов**
+
+    GET /api/v1/posts/
+
+    Authorization: Bearer <token>
+
+**Ответ**
+
+    [
+
+    {
+
+        "id": 1,
+
+        "author": "username",
+
+        "text": "Текст поста",
+
+        "pub_date": "2023-10-29T10:00:00Z",
+
+        "image": null,
+
+        "group": 1
+
+    }
+
+    ]
+    
